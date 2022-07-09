@@ -88,7 +88,7 @@ var sum4:String = "Hello Gitc"
 let sumsAarray: [Any] = [sum1, sum2, sum3, sum4]
 
 for item in sumsAarray {
-    print(item)
+    print("\(type(of: item)) \(item)\n")
 }
 
 
