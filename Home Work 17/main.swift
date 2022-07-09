@@ -39,7 +39,7 @@ class Developer:Person {
     var office: String
     var phoneNumber: String
     
-    init(name: String, office: String, phoneNumber: String) {
+     init(name: String, office: String, phoneNumber: String) {
         self.office = office
         self.phoneNumber = phoneNumber
         super.init(name: name)
@@ -63,30 +63,27 @@ let dev5 = Developer(name: "Seroj", office: "AAB", phoneNumber: "+374 94 99 99 9
 
 let personData: [Person] = [chef1, chef2, chef3, chef4, chef5, dev1, dev2, dev3, dev4, dev5]
 
-
 for persons in personData {
 
 if persons is Chef {
           let tempChef = persons as! Chef
     print( "Chef name:\(persons.name), \(tempChef.restaurant), Phone: \(tempChef.phoneNumber)" )
-
     
 } else if persons is Developer {
         let tempDev = persons as? Developer
     print( "Developer name:\(persons.name), Office:\(tempDev!.office), Phone: \(tempDev!.phoneNumber)" )
   }
+ 
 }
-
-
 
 
 //2. Ստեղծել մասիվ Any որը պետք է պարունակի swift -ի բազային տիպերով ստեղծված արժեքներ Int, Double, Float, String
 // ցիկլով տպել այդ արժեքները։
 
-let sum1:Int = 10
-let sum2:Double = 2.2
-let sum3:Float = 3.3
-let sum4:String = "Hello Gitc"
+var sum1:Int = 10
+var sum2:Double = 2.2
+var sum3:Float = 3.3
+var sum4:String = "Hello Gitc"
 
 let sumsAarray: [Any] = [sum1, sum2, sum3, sum4]
 
@@ -103,18 +100,17 @@ for item in sumsAarray {
 
 extension Int {
     
-    func plus(r: Int) -> Int {
-       return (self + r)
+   mutating func plus(r: Int) {
+      self = self + r
     }
     
-    func minus(r: Int) -> Int {
-        return (self - r)
+   mutating func minus(r: Int) {
+       self = self - r
     }
-    
 }
-print(sum1.plus(r: 2))
-print(sum1.minus(r: 20))
 
+sum1.minus(r: 3)
+print(sum1)
 
 
 //4. Double համար գրել Extension
@@ -123,14 +119,14 @@ print(sum1.minus(r: 20))
 
 extension Double {
     
-    func plus(r: Double) -> Double {
-       return (self + r)
+   mutating func plus(r: Double) {
+       self = self + r
     }
     
-    func minus(r: Double) -> Double {
-        return (self - r)
+   mutating func minus(r: Double){
+       self = self - r
     }
 }
 
-print(sum2.plus(r: 2.2))
-print(sum2.minus(r: 2.2))
+sum2.plus(r: 3.3)
+print(sum2)
